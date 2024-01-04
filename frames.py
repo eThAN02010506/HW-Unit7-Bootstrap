@@ -43,8 +43,8 @@ class searchBar(tb.Frame):
             # self.searchResult.configure(text="No query for search")
         else:
             print(name)
-            url_string = f"http://10.6.21.76:8000/names/{name}"
-            response = req.get(url_string)
+            url_string = f"{self.url_string}{name}"
+            response = req.get(url_string).json()
             print(name)
             if "msg" in response:
                 # self.searchResult.configure(text=response["msg"])

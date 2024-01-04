@@ -1,6 +1,6 @@
 import ttkbootstrap as tb
 from ttkbootstrap.constants import *
-# import requests as req
+import requests as req
 
 from K import *
 
@@ -96,6 +96,18 @@ class App(tb.Window):
                               )
 
         # self.button_group = ButtonGroup(self)
+
+    def set_frame(self):
+        self.frames[self.current_frame].pack(fill=BOTH, expand=True)
+
+    def remove_frame(self):
+        self.frames[self.current_frame].pack_forget()
+
+    def change_frame(self, name):
+        self.remove_frame()
+        self.current_frame = name
+        self.set_frame()
+
 
 if __name__ == "__main__":
     app = App(theme="minty")
